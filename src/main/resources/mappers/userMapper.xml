@@ -38,6 +38,16 @@
 		ORDER BY `id` DESC
 		LIMIT 1
  	</select>
+ 	
+ 	<select id="existUserByName" parameterType="string" resultType="boolean">
+ 		SELECT
+ 			COUNT(*)
+ 		FROM 
+ 			`new_user`
+ 		WHERE 
+ 			`name` = #{name}
+ 			<!-- 자주 사용하는 column은 index설정하면 좋다 -->
+ 	</select>
  
  </mapper>
  
