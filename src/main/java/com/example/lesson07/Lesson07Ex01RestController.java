@@ -28,6 +28,14 @@ public class Lesson07Ex01RestController {
 		StudentEntity student = studentBO.addStudent(name, phoneNumber, email, dreamJob);
 		
 		return student; // @ResponseBody + return 객체 => JSON
-		
+	}
+	
+	// U: UPDATE
+	// http://localhost/lesson07/ex01/2
+	@GetMapping("/2")
+	public StudentEntity update() {
+			//id가 5번인 dreamJob 변경 => "디자이너"
+			StudentEntity student = studentBO.updateStudentDreamJobById(5, "디자이너");
+			return student;
 	}
 }

@@ -20,7 +20,7 @@ import lombok.ToString;
 @ToString // toString override 값 예쁘게 출력
 @AllArgsConstructor		// 모든 필드를 인자값으로 받는 생성자 
 @NoArgsConstructor		// 파라미터 없는 기본 생성자 
-@Builder // setter 대용
+@Builder(toBuilder = true) // setter 대용
 @Getter  // getter
 @Table(name = "new_student") // (테이블명에 '_' 가 있다는것을 알려주기위함)
 @Entity // 이 클래스는 Entity라는 것을 알려줌 (javax로 import)
