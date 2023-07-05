@@ -23,7 +23,7 @@ import lombok.ToString;
 @Builder(toBuilder = true) // setter 대용
 @Getter  // getter
 @Table(name = "new_student") // (테이블명에 '_' 가 있다는것을 알려주기위함)
-@Entity // 이 클래스는 Entity라는 것을 알려줌 (javax로 import)
+@Entity(name = "new_student") // 이 클래스는 Entity라는 것을 알려줌 (javax로 import)
 public class StudentEntity {
 	@Id		//pk
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment

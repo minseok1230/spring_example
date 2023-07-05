@@ -1,5 +1,7 @@
 package com.example.lesson04.bo;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,6 +54,19 @@ public class StudentBO {
 			student =  studentRepository.save(student);
 		}
 		return student;
+	}
+	
+	public void deleteStudentById(int id) {
+		// 방법1)
+//		StudentEntity student = studentRepository.findById(id).orElse(null);
+//		
+//		if (student != null) {
+//			studentRepository.delete(student);
+//		}
+		
+		// 방법2) Optional: null이 올 수 있는 값을 감싸는 Wrapper 클래스
+		Optional<StudentEntity> studentOptional = studentRepository.findById(id);
+		studentOptional.ifPresent(s -> studentRepository.delete(s));
 	}
 }
 
